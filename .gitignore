@@ -177,5 +177,7 @@ cython_debug/
 **/ny_taxi_postgres_data/*
 serving_dir
 *.csv
-.ipynb_checkpoints/
+
+# Exceptions
+!.gitkeep
 !week_6_stream_processing/avro_example/data/rides.csv
