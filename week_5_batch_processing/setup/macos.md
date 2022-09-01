@@ -1,5 +1,5 @@
 
-## MacOS
+# MacOS
 
 Here we'll show you how to install Spark 3.2.1 for MacOS.
 We tested it on MacOS Monterey 12.0.1, but it should work
@@ -38,7 +38,7 @@ brew install scala@2.11
 brew install apache-spark
 ```
 
-3. Add environment variables: 
+3. Add environment variables:
 
 Add the following environment variables to your `.bash_profile` or `.zshrc`
 
@@ -46,7 +46,6 @@ Add the following environment variables to your `.bash_profile` or `.zshrc`
 export SPARK_HOME=/usr/local/Cellar/apache-spark/3.2.1/libexec
 export PATH="$SPARK_HOME/bin/:$PATH"
 ```
-
 
 ### Testing Spark
 
@@ -58,9 +57,6 @@ val distData = sc.parallelize(data)
 distData.filter(_ < 10).collect()
 ```
 
-
 ### PySpark
 
-It's the same for all platforms. Go to [pyspark.md](pyspark.md). 
-
-
+It's the same for all platforms. Go to [pyspark.md](pyspark.md).
