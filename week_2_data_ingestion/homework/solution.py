@@ -1,5 +1,6 @@
 import os
 import logging
+import gzip
 
 from datetime import datetime
 
@@ -19,11 +20,19 @@ BUCKET = os.environ.get("GCP_GCS_BUCKET")
 AIRFLOW_HOME = os.environ.get("AIRFLOW_HOME", "/opt/airflow/")
 
 
-def format_to_parquet(src_file, dest_file):
+def csv_to_df(src_file) -> pv.Table:
     if not src_file.endswith('.csv'):
         logging.error("Can only accept source files in CSV format, for the moment")
         return
-    table = pv.read_csv(src_file)
+    return pv.read_csv(src_file)
+
+
+def format_to_parquet(src_file, dest_file):
+    if src_file.endswith('.gz'):
+        with gzip.open(src_file, 'r') as f:
+            table = csv_to_df(f)
+    elif src_file.endswith('.csv'):
+        table = pv.read_csv(src_file)
     pq.write_table(table, dest_file)
 
 
@@ -82,11 +91,15 @@ def donwload_parquetize_upload_dag(
         download_dataset_task >> format_to_parquet_task >> local_to_gcs_task >> rm_task
 
 
+URL_PREFIX = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download'
 
-URL_PREFIX = 'https://s3.amazonaws.com/nyc-tlc/trip+data'
+YELLOW_URL_PREFIX = URL_PREFIX + '/yellow'
 
-YELLOW_TAXI_URL_TEMPLATE = URL_PREFIX + '/yellow_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv'
-YELLOW_TAXI_CSV_FILE_TEMPLATE = AIRFLOW_HOME + '/yellow_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv'
+# TODO validate file type
+# TODO unzip file
+
+YELLOW_TAXI_URL_TEMPLATE = YELLOW_URL_PREFIX + '/yellow_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv.gz'
+YELLOW_TAXI_CSV_FILE_TEMPLATE = AIRFLOW_HOME + '/yellow_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv.gz'
 YELLOW_TAXI_PARQUET_FILE_TEMPLATE = AIRFLOW_HOME + '/yellow_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.parquet'
 YELLOW_TAXI_GCS_PATH_TEMPLATE = "raw/yellow_tripdata/{{ execution_date.strftime(\'%Y\') }}/yellow_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.parquet"
 
@@ -109,10 +122,10 @@ donwload_parquetize_upload_dag(
     gcs_path_template=YELLOW_TAXI_GCS_PATH_TEMPLATE
 )
 
-# https://s3.amazonaws.com/nyc-tlc/trip+data/green_tripdata_2021-01.csv
+GREEN_URL_PREFIX = URL_PREFIX + '/green'
 
-GREEN_TAXI_URL_TEMPLATE = URL_PREFIX + '/green_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv'
-GREEN_TAXI_CSV_FILE_TEMPLATE = AIRFLOW_HOME + '/green_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv'
+GREEN_TAXI_URL_TEMPLATE = GREEN_URL_PREFIX + '/green_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv.gz'
+GREEN_TAXI_CSV_FILE_TEMPLATE = AIRFLOW_HOME + '/green_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv.gz'
 GREEN_TAXI_PARQUET_FILE_TEMPLATE = AIRFLOW_HOME + '/green_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.parquet'
 GREEN_TAXI_GCS_PATH_TEMPLATE = "raw/green_tripdata/{{ execution_date.strftime(\'%Y\') }}/green_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.parquet"
 
@@ -135,10 +148,10 @@ donwload_parquetize_upload_dag(
 )
 
 
-# https://nyc-tlc.s3.amazonaws.com/trip+data/fhv_tripdata_2021-01.csv
+FHV_URL_PREFIX = URL_PREFIX + '/fhv'
 
-FHV_TAXI_URL_TEMPLATE = URL_PREFIX + '/fhv_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv'
-FHV_TAXI_CSV_FILE_TEMPLATE = AIRFLOW_HOME + '/fhv_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv'
+FHV_TAXI_URL_TEMPLATE = FHV_URL_PREFIX + '/fhv_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv.gz'
+FHV_TAXI_CSV_FILE_TEMPLATE = AIRFLOW_HOME + '/fhv_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.csv.gz'
 FHV_TAXI_PARQUET_FILE_TEMPLATE = AIRFLOW_HOME + '/fhv_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.parquet'
 FHV_TAXI_GCS_PATH_TEMPLATE = "raw/fhv_tripdata/{{ execution_date.strftime(\'%Y\') }}/fhv_tripdata_{{ execution_date.strftime(\'%Y-%m\') }}.parquet"
 
@@ -162,10 +175,8 @@ donwload_parquetize_upload_dag(
 )
 
 
-# https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv
-
-ZONES_URL_TEMPLATE = 'https://s3.amazonaws.com/nyc-tlc/misc/taxi+_zone_lookup.csv'
-ZONES_CSV_FILE_TEMPLATE = AIRFLOW_HOME + '/taxi_zone_lookup.csv'
+ZONES_URL_TEMPLATE = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/misc/taxi_zone_lookup.csv.gz'
+ZONES_CSV_FILE_TEMPLATE = AIRFLOW_HOME + '/taxi_zone_lookup.csv.gz'
 ZONES_PARQUET_FILE_TEMPLATE = AIRFLOW_HOME + '/taxi_zone_lookup.parquet'
 ZONES_GCS_PATH_TEMPLATE = "raw/taxi_zone/taxi_zone_lookup.parquet"
 
