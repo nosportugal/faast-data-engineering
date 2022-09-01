@@ -7,13 +7,13 @@ from google.cloud import storage
 
 """
 Pre-reqs: 
-1. `pip install pandas pyarrow google-cloud-storage`
+1. `pip install requests pandas pyarrow google-cloud-storage` in your virtual env or DockerFile
 2. Set GOOGLE_APPLICATION_CREDENTIALS to your project/service-account key
 3. Set GCP_GCS_BUCKET as your bucket or change default value of BUCKET
 """
 
 # services = ['fhv','green','yellow']
-init_url = 'https://nyc-tlc.s3.amazonaws.com/trip+data/'
+init_url = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/'
 # switch out the bucketname
 BUCKET = os.environ.get("GCP_GCS_BUCKET", "dtc-data-lake-bucketname")
 
@@ -41,17 +41,19 @@ def web_to_gcs(year, service):
         month = month[-2:]
 
         # csv file_name 
-        file_name = service + '_tripdata_' + year + '-' + month + '.csv'
+        file_name = f"{service}/{service}_tripdata_{year}-{month}.csv.gz"
 
         # download it using requests via a pandas df
         request_url = init_url + file_name
-        r = requests.get(request_url)
-        pd.DataFrame(io.StringIO(r.text)).to_csv(file_name)
+        response = requests.get(request_url)
+        fp = io.BytesIO(response.content)
+        df = pd.read_csv(fp, compression='gzip')
+        df.to_csv(file_name)
         print(f"Local: {file_name}")
 
         # read it back into a parquet file
         df = pd.read_csv(file_name)
-        file_name = file_name.replace('.csv', '.parquet')
+        file_name = file_name.replace('.csv.gz', '.parquet')
         df.to_parquet(file_name, engine='pyarrow')
         print(f"Parquet: {file_name}")
 
