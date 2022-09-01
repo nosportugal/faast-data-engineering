@@ -83,3 +83,7 @@ If you have problems setting up the env, you can check this video:
 
 * [Homework](homework.md)
 * [Solution](https://www.youtube.com/watch?v=HxHqH2ARfxM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+* [Office Hours](https://youtu.be/Vpt1BRWT1c0?t=570) - (start at 9:30)
+  * Why should DEs learn Terraform?
+  * Kubernetes vs Terraform?
+  * How important is docker for data engineering?
