@@ -1,213 +1,177 @@
-# Data Engineering Zoomcamp
+# Data Engineering Learning Path
 
-- Register in [DataTalks.Club's Slack](https://datatalks.club/slack.html)
-- Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel
-- The videos are published on [DataTalks.Club's YouTube channel](https://www.youtube.com/c/DataTalksClub) in [the course playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) 
-- [Frequently asked technical questions](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing)
+Welcome to the Data Engineering Learning Path! 🤖👍
 
+This course was adapted from the [DataTalksClub's Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp) to the NOS ecosystem.
 
-Syllabus
+- You can join DataTalks at [DataTalks.Club](https://datatalks.club).
+- The videos are published on [DataTalks.Club's YouTube channel](https://www.youtube.com/c/DataTalksClub) in [the course playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+- Their [FAQs](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing) page is already filled with answers for many technical questions you might have.
 
-* [Week 1: Introduction & Prerequisites](#week-1-introduction--prerequisites)
-* [Week 2: Data ingestion](#week-2-data-ingestion)
-* [Week 3: Data Warehouse](#week-3-data-warehouse)
-* [Week 4: Analytics Engineering](#week-4-analytics-engineering)
-* [Week 5: Batch processing](#week-5-batch-processing)
-* [Week 6: Streaming](#week-6-streaming)
-* [Week 7, 8 & 9: Project](#week-7-8--9-project)
+This course was designed to give you a foundation in data engineering. After finishing it you should also feel comfortable using tools like Docker, Terraform, and Google Cloud Platform. The data engineering topics that will be covered are:
 
-## Taking the course
+- Data ingestion
+- Data Warehouse
+- Data orchestration with Airflow
+- Data transformations with dbt
+- Batch processing with PySpark
+- Stream processing with Kafka
 
-### Self-paced mode
+In this introduction, you'll learn:
 
-All the materials of the course are freely available, so that you 
-can take the course at your own pace 
+- The directions driving your learning experience in this course.
+- The structure of the course.
+- The expectations on students and mentors.
+- A suggested learning calendar.
 
-* Follow the suggested syllabus (see below) week by week
-* You don't need to fill in the registration form. Just start watching the videos and join Slack 
-* Check [FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing) if you have problems
-* If you can't find a solution to your problem in FAQ, ask for help in Slack
+## Learning Principles
 
+When we assembled this course, we had in mind that our students would be adult individuals with time constraints. They will be looking to implement the knowledge in their work environment and maybe discuss it with their peers.
 
-### 2022 Cohort
+To fulfill these expectations, we adopted the following principles:
 
-* **Start**: 17 January 2022
-* **Registration link**: https://airtable.com/shr6oVXeQvSI5HuWD
-* [Leaderboard](https://docs.google.com/spreadsheets/d/e/2PACX-1vR9oQiYnAVvzL4dagnhvp0sngqagF0AceD0FGjhS-dnzMTBzNQIal3-hOgkTibVQvfuqbQ69b0fvRnf/pubhtml)
-* Subscribe to our [public Google Calendar](https://calendar.google.com/calendar/?cid=ZXIxcjA1M3ZlYjJpcXU0dTFmaG02MzVxMG9AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (it works from Desktop only)
+- Prefer self-directed learning over teacher-directed learning;
+- Prefer content that's easily accessible (no paywalls or subscriptions);
+- Prefer content that can be immediately applied;
+- Always use code examples;
+- Learning by teaching is encouraged.
 
+## Learning Structure
 
-### Asking for help in Slack
+Students are to be divided into groups of 3. These groups should try to progress through the learning process together so that their questions and discussion are on the same wavelength. Each group will be assigned a mentor. A mentor is a more experienced collaborator and/or someone who has already gone through the course. They are in charge of helping their group, answering questions and preventing them from being stuck, as well as keeping track of their progress.
 
-The best way to get support is to use [DataTalks.Club's Slack](https://datatalks.club/slack.html). Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel.
+### Suggested learning calendar
 
-To make discussions in Slack more organized:
+> **Note**: This is just a suggestion. Groups are encouraged to set their own deadlines with their mentors.
 
-* Follow [these recommendations](asking-questions.md) when asking for help
-* Read the [DataTalks.Club community guidelines](https://datatalks.club/slack/guidelines.html)
+- [Week 1: Introduction & Prerequisites](week_1_basics_n_setup)
+  - Course overview
+  - Introduction to GCP
+  - Docker and docker-compose
+  - Running Postgres locally with Docker
+  - Setting up infrastructure on GCP with Terraform
+  - Preparing the environment for the course
 
-
-## Syllabus
-
-> **Note:** NYC TLC changed the format of the data we use to parquet. But you can still access 
+> **Note:** NYC TLC changed the format of the data we use to parquet. But you can still access
 > the csv files [here](https://github.com/DataTalksClub/nyc-tlc-data).
 
-### [Week 1: Introduction & Prerequisites](week_1_basics_n_setup)
+- [Week 2: Data ingestion](week_2_data_ingestion)
+  - Data Lake
+  - Workflow orchestration
+  - Setting up Airflow locally
+  - Ingesting data to GCP with Airflow
+  - Ingesting data to local Postgres with Airflow
+  - Moving data from AWS to GCP (Transfer service)
+- [Week 3: Data Warehouse](week_3_data_warehouse)
+  - Data Warehouse
+  - BigQuery
+  - Partitioning and clustering
+  - BigQuery best practices
+  - Internals of BigQuery
+  - Integrating BigQuery with Airflow
+  - BigQuery Machine Learning
+- [Week 4: Analytics engineering](week_4_analytics_engineering/)
+  - Basics of analytics engineering
+  - dbt (data build tool)
+  - BigQuery and dbt
+  - Postgres and dbt
+  - dbt models
+  - Testing and documenting
+  - Deployment to the cloud and locally
+  - Visualizing the data with Google Data Studio and Metabase
+- [Week 5: Batch processing](week_5_batch_processing)
+  - Batch processing
+  - What is Spark
+  - Spark Dataframes
+  - Spark SQL
+  - Internals: GroupBy and joins
+- [Week 6: Streaming](week_6_stream_processing)
+  - Introduction to Kafka
+  - Schemas (avro)
+  - Kafka Streams
+  - Kafka Connect and KSQL
+- [Week 7- 9: Project](week_7_project)
+  - Week 7 and 8: working on your project
+  - Week 9: reviewing your peers
 
-* Course overview
-* Introduction to GCP
-* Docker and docker-compose 
-* Running Postgres locally with Docker
-* Setting up infrastructure on GCP with Terraform
-* Preparing the environment for the course
-* Homework
+### Progress and Questions Tracking
 
-[More details](week_1_basics_n_setup)
+In order to help mentors in tracking the progress of their groups, we suggest using the following template:
 
+- [Progress  Question Tracking template](https://docs.google.com/spreadsheets/d/1nODnLBLCcC6Dqe_pK_bog-BA78E9AuUq1l4S81Px61w/edit?usp=sharing)
 
-### [Week 2: Data ingestion](week_2_data_ingestion)
+#### Setup
 
-* Data Lake
-* Workflow orchestration
-* Setting up Airflow locally
-* Ingesting data to GCP with Airflow
-* Ingesting data to local Postgres with Airflow
-* Moving data from AWS to GCP (Transfer service)
-* Homework
+Each group should have its own copy of the template.
 
-[More details](week_2_data_ingestion)
+The mentor should select which courses will be part of the learning path inside the "Courses" tab:
 
+![Selecting courses](images/ce8d9c082463fe416805b548440e9acd2a1d77ab816fdad8595b46c63eabf60f.png)  
 
-### [Week 3: Data Warehouse](week_3_data_warehouse)
+This will add the courses to the learning path tracker.
 
+![Adding group members](images/158c65ee56ae0168ffb74313ae0f4400969dab94ef420064b65f14e5510bd0e3.png)  
 
-* Data Warehouse
-* BigQuery
-* Partitioning and clustering
-* BigQuery best practices
-* Internals of BigQuery
-* Integrating BigQuery with Airflow
-* BigQuery Machine Learning
+#### Tracking questions
 
-[More details](week_3_data_warehouse)
+Tracking questions is important so that we can improve the quality of the selected material, as well as create new ones.
 
+We understand that some chapters might be really close, and students might want to ask questions directly to the mentor, to also have the question available publicly is to everybody's advantage.
 
-### [Week 4: Analytics engineering](week_4_analytics_engineering/)
+### Learning Unit Workflow
 
-* Basics of analytics engineering
-* dbt (data build tool)
-* BigQuery and dbt
-* Postgres and dbt
-* dbt models
-* Testing and documenting
-* Deployment to the cloud and locally
-* Visualizing the data with google data studio and metabase 
+Each learning unit a `README.md` file with instructions and, with the exception of [Week 1: Introduction & Prerequisites](week_1_basics_n_setup), a `homework.md` file with the homework instructions. For each homework there's also a solution video. Modules are to be run inside Docker containers, so ensure you have it installed.
 
+At the end of the learning path, there will be a final project. The project will be peer-reviewed by another member of your group.
 
-[More details](week_4_analytics_engineering)
+The learning units follow video lessons and you can find the lesson's code inside the `code` folder.
 
+## Expectations
 
-### [Week 5: Batch processing](week_5_batch_processing)
+### Expectations for students
 
-* Batch processing 
-* What is Spark
-* Spark Dataframes
-* Spark SQL
-* Internals: GroupBy and joins
+Although we understand that time may be constrained, each student has responsibilities within their group, namely:
 
-[More details](week_5_batch_processing)
+- Try to keep pace with the group's progress, neither falling too behind nor advancing too much by themselves.
+- Be open in your discussions with the group, so that everyone can understand the material.
+- Be courteous and respectful  to your peers and mentor.
+- Set your progress expectations with your mentor.
+- Conduct yourself with integrity and honesty.
 
-### [Week 6: Streaming](week_6_stream_processing)
+### Expectations for mentors
 
-* Introduction to Kafka
-* Schemas (avro)
-* Kafka Streams
-* Kafka Connect and KSQL
+A mentor are tasked in ensuring their peers become better professionals, as such, we expect them to:
 
-[More details](week_6_stream_processing)
+- Reserve at least 30 minutes per week for each group you mentor, for answering questions and giving feedback.
+- Encourage group members and communicate openly.
+- Be courteous and respectful to your mentees.
+- Keep track of questions and progress of the group members (see [Progress tracking](#progress-and-questions-tracking))
+- Conduct yourself with integrity and honesty.
 
+## Pre-requisites
 
-### [Week 7, 8 & 9: Project](week_7_project)
+In order to make the best use of this learning path, you should know:
 
-Putting everything we learned to practice
-
-* Week 7 and 8: working on your project
-* Week 9: reviewing your peers
-
-[More details](week_7_project)
-
-
-## Overview
-
-### Architecture diagram
-<img src="images/architecture/arch_1.jpg"/>
-
-### Technologies
-* *Google Cloud Platform (GCP)*: Cloud-based auto-scaling platform by Google
-  * *Google Cloud Storage (GCS)*: Data Lake
-  * *BigQuery*: Data Warehouse
-* *Terraform*: Infrastructure-as-Code (IaC)
-* *Docker*: Containerization
-* *SQL*: Data Analysis & Exploration
-* *Airflow*: Pipeline Orchestration
-* *dbt*: Data Transformation
-* *Spark*: Distributed Processing
-* *Kafka*: Streaming
-
-
-### Prerequisites
-
-To get the most out of this course, you should feel comfortable with coding and command line
-and know the basics of SQL. Prior experience with Python will be helpful, but you can pick 
-Python relatively fast if you have experience with other programming languages.
+- Basic Python
+- Basic SQL
+- Comfortable with SQL
 
 Prior experience with data engineering is not required.
 
+## DataTalks Instructors
 
+- Ankush Khanna (<https://linkedin.com/in/ankushkhanna2>)
+- Sejal Vaidya (<https://linkedin.com/in/vaidyasejal>)
+- Victoria Perez Mola (<https://www.linkedin.com/in/victoriaperezmola/>)
+- Alexey Grigorev (<https://linkedin.com/in/agrigorev>)
 
-## Instructors
+## Tools
 
-- Ankush Khanna (https://linkedin.com/in/ankushkhanna2)
-- Sejal Vaidya (https://linkedin.com/in/vaidyasejal)
-- Victoria Perez Mola (https://www.linkedin.com/in/victoriaperezmola/)
-- Alexey Grigorev (https://linkedin.com/in/agrigorev)
+For this learning path, you'll need to have the following software installed on your computer:
 
-## Tools 
+- Docker and Docker-Compose
+- Python 3
+- Google Cloud SDK
+- Terraform
 
-For this course, you'll need to have the following software installed on your computer:
-
-* Docker and Docker-Compose
-* Python 3 (e.g. via [Anaconda](https://www.anaconda.com/products/individual))
-* Google Cloud SDK 
-* Terraform
-
-See [Week 1](week_1_basics_n_setup) for more details about installing these tools
-
-
-
-## FAQ
-
-
-* **Q**: I registered, but haven't received a confirmation email. Is it normal?
-  **A**: Yes, it's normal. It's not automated. But you will receive an email eventually 
-* **Q**: At what time of the day will it happen?
-  **A**: Office hours will happen on Mondays at 17:00 CET. But everything will be recorded, so you can watch it whenever it's convenient for you
-* **Q**: Will there be a certificate?
-  **A**: Yes, if you complete the project
-* **Q**: I'm 100% not sure I'll be able to attend. Can I still sign up?
-  **A**: Yes, please do! You'll receive all the updates and then you can watch the course at your own pace. 
-* **Q**: Do you plan to run a ML engineering course as well?
-**A**: Glad you asked. [We do](https://github.com/alexeygrigorev/mlbookcamp-code/tree/master/course-zoomcamp) :)
-* **Q**: I'm stuck! I've got a technical question!
-  **A**: Ask on Slack! And check out the [student FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit?usp=sharing); many common issues have been answered already. If your issue is solved, please add how you solved it to the document. Thanks!
-
-
-
-## Our friends 
-
-Big thanks to other communities for helping us spread the word about the course: 
-
-* [DPhi](https://dphi.tech/)
-* [MLOps.community](https://mlops.community/)
-
-Check them out - they are cool!
+Are you ready to get started? If so, go over to the `dataset.md` section to read more about the data you'll be using throughout the learning path.
