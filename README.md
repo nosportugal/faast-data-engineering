@@ -52,7 +52,7 @@ Students are to be divided into groups of 3. These groups should try to progress
   - Setting up infrastructure on GCP with Terraform
   - Preparing the environment for the course
 
-> **Note:** NYC TLC changed the format of the data we use to parquet. But you can still access
+> **Note**: NYC TLC changed the format of the data we use to parquet. But you can still access
 > the csv files [here](https://github.com/DataTalksClub/nyc-tlc-data).
 
 - [Week 2: Data ingestion](week_2_data_ingestion)
