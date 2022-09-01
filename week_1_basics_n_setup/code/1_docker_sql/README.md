@@ -1,19 +1,16 @@
-## Docker and SQL
+# Docker and SQL
 
 Notes I used for preparing the videos: [link](https://docs.google.com/document/d/e/2PACX-1vRJUuGfzgIdbkalPgg2nQ884CnZkCg314T_OBq-_hfcowPxNIA0-z5OtMTDzuzute9VBHMjNYZFTCc1/pub)
 
-
-## Commands 
+## Commands
 
 All the commands from the video
 
 Downloading the data
 
 ```bash
-wget https://s3.amazonaws.com/nyc-tlc/csv_backup/yellow_tripdata_2021-01.csv
+wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2020-01.csv.gz
 ```
-
-> Note: now the CSV data is stored in the `csv_backup` folder, not `trip+date` like previously
 
 ### Running Postgres with Docker
 
@@ -26,34 +23,25 @@ docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v c:/Users/alexe/git/data-engineering-zoomcamp/week_1_basics_n_setup/2_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -v c:/Users/YOUR_PATH_HERE/week_1_basics_n_setup/code/1_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data \
   -p 5432:5432 \
   postgres:13
 ```
 
 If you have the following error:
 
-```
-docker run -it \
-  -e POSTGRES_USER="root" \
-  -e POSTGRES_PASSWORD="root" \
-  -e POSTGRES_DB="ny_taxi" \
-  -v e:/zoomcamp/data_engineer/week_1_fundamentals/2_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data  \
-  -p 5432:5432 \
-  postgres:13
-
+```bash
 docker: Error response from daemon: invalid mode: \Program Files\Git\var\lib\postgresql\data.
 See 'docker run --help'.
 ```
 
 Change the mounting path. Replace it with the following:
 
-```
+```bash
 -p /e/zoomcamp/...:/var/lib/postgresql/data
 ```
 
 #### Linux and MacOS
-
 
 ```bash
 docker run -it \
@@ -70,7 +58,6 @@ the container, try these:
 
 * Deleting the folder and running Docker again (Docker will re-create the folder)
 * Adjust the permissions of the folder by running `sudo chmod a+rwx ny_taxi_postgres_data`
-
 
 ### CLI for Postgres
 
@@ -93,25 +80,18 @@ Using `pgcli` to connect to Postgres
 pgcli -h localhost -p 5432 -u root -d ny_taxi
 ```
 
-
 ### NY Trips Dataset
 
 Dataset:
 
-* https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-* https://www1.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf
+* <https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page>
+* <https://www1.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf>
 
 > According to the [TLC data website](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page),
 > from 05/13/2022, the data will be in ```.parquet``` format instead of ```.csv```
 > The website has provided a useful [link](https://www1.nyc.gov/assets/tlc/downloads/pdf/working_parquet_format.pdf) with sample steps to read ```.parquet``` file and convert it to Pandas data frame.
 >
-> You can use the csv backup located here, https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz, to follow along with the video.
-```
-$ aws s3 ls s3://nyc-tlc
-                           PRE csv_backup/
-                           PRE misc/
-                           PRE trip data/
-```
+> You can use the csv backup located here, <https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz>, to follow along with the video.
 
 ### pgAdmin
 
@@ -140,7 +120,7 @@ docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v c:/Users/alexe/git/data-engineering-zoomcamp/week_1_basics_n_setup/2_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -v c:/Users/YOUR_PATH_HERE/week_1_basics_n_setup/code/1_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data \
   -p 5432:5432 \
   --network=pg-network \
   --name pg-database \
@@ -158,7 +138,6 @@ docker run -it \
   --name pgadmin-2 \
   dpage/pgadmin4
 ```
-
 
 ### Data ingestion
 
@@ -185,7 +164,7 @@ docker build -t taxi_ingest:v001 .
 
 On Linux you may have a problem building it:
 
-```
+```bash
 error checking context: 'can't stat '/home/name/data_engineering/ny_taxi_postgres_data''.
 ```
 
@@ -195,9 +174,7 @@ You can solve it with `.dockerignore`:
 * Move `ny_taxi_postgres_data` to `data` (you might need to use `sudo` for that)
 * Map `-v $(pwd)/data/ny_taxi_postgres_data:/var/lib/postgresql/data`
 * Create a file `.dockerignore` and add `data` there
-* Check [this video](https://www.youtube.com/watch?v=tOr4hTsHOzU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) (the middle) for more details 
-
-
+* Check [this video](https://www.youtube.com/watch?v=tOr4hTsHOzU&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb) (the middle) for more details
 
 Run the script with Docker
 
@@ -216,7 +193,7 @@ docker run -it \
     --url=${URL}
 ```
 
-### Docker-Compose 
+### Docker-Compose
 
 Run it:
 
@@ -252,8 +229,3 @@ services:
       - ./data_pgadmin:/var/lib/pgadmin
     ...
 ```
-
-
-### SQL 
-
-Coming soon!

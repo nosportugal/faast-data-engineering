@@ -50,8 +50,8 @@ Below you can see the data dictionary for Yellow and Green cabs.
 > **Note:** NYC TLC changed the format of the data we use to parquet. But you can still access
 > the csv files [here](https://github.com/DataTalksClub/nyc-tlc-data).
 
-[Shapefile from S3](https://s3.amazonaws.com/nyctlc/misc/taxi_zones.zip)
-
 [Taxi zones](https://data.cityofnewyork.us/Transportation/NYC-Taxi-Zones/d3c5-ddgc)
+
+> **Caution:** At some points in the videos and code, you may see data being downloaded from an Amazon S3 bucket. This bucket, however, is no longer accessible. Please use the [GitHub backup](https://github.com/DataTalksClub/nyc-tlc-data) instead.
 
 When you're ready, get over to [Week 1: Introduction & Prerequisites](week_1_basics_n_setup) to continue.
