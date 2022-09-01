@@ -1,12 +1,11 @@
-## Datasets
+# Datasets
 
 Here are some datasets that you could use for the project:
-
 
 * [Kaggle](https://www.kaggle.com/datasets)
 * [AWS datasets](https://registry.opendata.aws/)
 * [UK government open data](https://data.gov.uk/)
-* [Github archive](https://www.gharchive.org)
+* [GitHub archive](https://www.gharchive.org)
 * [Awesome public datasets](https://github.com/awesomedata/awesome-public-datasets)
 * [Million songs dataset](http://millionsongdataset.com)
 * [Some random datasets](https://components.one/datasets/)
@@ -23,5 +22,3 @@ Here are some datasets that you could use for the project:
 * Collection Of Data Repositories
   * [part 1](https://www.kdnuggets.com/2022/04/complete-collection-data-repositories-part-1.html) (from agriculture and finance to government)
   * [part 2](https://www.kdnuggets.com/2022/04/complete-collection-data-repositories-part-2.html) (from healthcare to transportation)
-
-PRs with more datasets are welcome!
