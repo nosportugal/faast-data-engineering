@@ -14,28 +14,57 @@ We'll use high volume for-hire vehicles (HVFHV) dataset for that.
 
 What's the output?
 
-## Question 2. HVFHW January 2021
+## Question 2. HVFHW February 2021
 
-Download the HVFHV data for January 2021:
+Download the HVFHV data for February 2021:
 
 ```bash
-wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/fhvhv/fhvhv_tripdata_2021-01.csv.gz
+wget https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2021-02.parquet
 ```
 
-Read it with Spark using the same schema as we did
-in the lessons. We will use this dataset for all
-the remaining questions.
+Read it with Spark using the following schema
 
-Repartition it to 24 partitions and save it to
-parquet.
+```python
+from pyspark.sql import types
+
+
+schema = types.StructType([
+    types.StructField('hvfhs_license_num', types.StringType(), True),
+    types.StructField('dispatching_base_num', types.StringType(), True),
+    types.StructField('originating_base_num', types.StringType(), True),
+    types.StructField('request_datetime', types.TimestampType(), True),
+    types.StructField('on_scene_datetime', types.TimestampType(), True),
+    types.StructField('pickup_datetime', types.TimestampType(), True),
+    types.StructField('dropoff_datetime', types.TimestampType(), True),
+    types.StructField('PULocationID', types.LongType(), True),
+    types.StructField('DOLocationID', types.LongType(), True),
+    types.StructField('trip_miles', types.DoubleType(), True),
+    types.StructField('trip_time', types.LongType(), True),
+    types.StructField('base_passenger_fare', types.DoubleType(), True),
+    types.StructField('tolls', types.DoubleType(), True),
+    types.StructField('bcf', types.DoubleType(), True),
+    types.StructField('sales_tax', types.DoubleType(), True),
+    types.StructField('congestion_surcharge', types.DoubleType(), True),
+    types.StructField('airport_fee', types.DoubleType(), True),
+    types.StructField('tips', types.DoubleType(), True),
+    types.StructField('driver_pay', types.DoubleType(), True),
+    types.StructField('shared_request_flag', types.StringType(), True),
+    types.StructField('shared_match_flag', types.StringType(), True),
+    types.StructField('access_a_ride_flag', types.StringType(), True),
+    types.StructField('wav_request_flag', types.StringType(), True),
+    types.StructField('wav_match_flag', types.StringType(), True),
+])
+```
+
+ We will use this dataset for all the remaining questions. Repartition it to 24 partitions and save it to parquet again.
 
 What's the size of the folder with results (in MB)?
 
 ## Question 3. Count records
 
-How many taxi trips were there on January 15?
+How many taxi trips were there on February 15?
 
-Consider only trips that started on January 15.
+Consider only trips that started on February 15.
 
 ## Question 4. Longest trip for each day
 

@@ -47,8 +47,7 @@ Below you can see the data dictionary for Yellow and Green cabs.
 | Zone         |            | Newark Airport |
 | service_zone |            | EWR            |
 
-> **Note**: NYC TLC changed the format of the data we use to parquet. But you can still access
-> the csv files [here](https://github.com/DataTalksClub/nyc-tlc-data).
+> **Note**: NYC TLC changed the format of the data we use to parquet. But you can still access the csv files [here](https://github.com/DataTalksClub/nyc-tlc-data). Alternatively, you can use the original parquet files at NYC TLC's [website](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) and then adapt your code to read parquets instead of csv.
 
 [Taxi zones](https://data.cityofnewyork.us/Transportation/NYC-Taxi-Zones/d3c5-ddgc)
 

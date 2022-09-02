@@ -48,8 +48,7 @@ Coming soon
 
 This week's homework will have you writing queries using PySpark to answer a variety of questions.
 
-> **Warning**: Originally, the homework used data from February 2021, which is no longer available at the GitHub repo. We will be using data from January 2021, but that means the answers will arrive won't match the ones in the solutions video.
-> If you do, however still want to use February data, you can download it from the original parquet source at <https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2021-02.parquet>
+> **Warning**: Originally, the homework used data from February 2021, which is no longer available at the GitHub repo. That's why will will be using original parquet source at <https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2021-02.parquet> instead.
 
 More information [here](homework.md)
 

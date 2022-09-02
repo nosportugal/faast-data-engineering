@@ -66,11 +66,7 @@ spark-submit \
 
 ## Data Proc
 
-Upload the script to GCS:
-
-```bash
-TODO
-```
+1. Upload the script to GCS:
 
 Params for the job:
 
@@ -78,7 +74,7 @@ Params for the job:
 * `--input_yellow=gs://dtc_data_lake_de-zoomcamp-nytaxi/pq/yellow/2021/*/`
 * `--output=gs://dtc_data_lake_de-zoomcamp-nytaxi/report-2021`
 
-Using Google Cloud SDK for submitting to Dataproc
+2. Using Google Cloud SDK for submitting to Dataproc
 ([link](https://cloud.google.com/dataproc/docs/guides/submit-job#dataproc-submit-job-gcloud))
 
 ```bash
@@ -94,13 +90,9 @@ gcloud dataproc jobs submit pyspark \
 
 ## Big Query
 
-Upload the script to GCS:
+1. Upload the script to GCS
 
-```bash
-TODO
-```
-
-Write results to big query ([docs](https://cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example#pyspark)):
+2. Write results to big query ([docs](https://cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example#pyspark)):
 
 ```bash
 gcloud dataproc jobs submit pyspark \
