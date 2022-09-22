@@ -180,4 +180,5 @@ serving_dir
 
 # Exceptions
 !.gitkeep
-!week_6_stream_processing/avro_example/data/rides.csv
+!4_analytics_engineering/taxi_rides_ny/data/taxi_zone_lookup.csv
+!6_stream_processing/avro_example/data/rides.csv
