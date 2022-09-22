@@ -1,6 +1,8 @@
-# Data Engineering Learning Path
+# FAAST Advance Data Engineering
 
-Welcome to the Data Engineering Learning Path! 🤖👍
+![FAAST logo](/images/FAAST_preto.png)
+
+Welcome to the FAAST Advance Data Engineering! 🤖👍
 
 This course was adapted from the [DataTalksClub's Data Engineering Zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp) to the NOS ecosystem.
 
@@ -44,7 +46,7 @@ Students are to be divided into groups of 3. These groups should try to progress
 
 > **Note**: This is just a suggestion. Groups are encouraged to set their own deadlines with their mentors.
 
-- [Week 1: Introduction & Prerequisites](week_1_basics_n_setup) _(~5 hours)_
+- [Weeks 1-2: Introduction & Prerequisites](week_1_basics_n_setup) _(~5 hours)_
   - Course overview
   - Introduction to GCP
   - Docker and docker-compose
@@ -55,7 +57,7 @@ Students are to be divided into groups of 3. These groups should try to progress
 > **Note**: NYC TLC changed the format of the data we use to parquet. But you can still access
 > the csv files [here](https://github.com/DataTalksClub/nyc-tlc-data).
 
-- [Week 2: Data ingestion](week_2_data_ingestion) _(~4 hours)_
+- [Weeks 3-4: Data ingestion](week_2_data_ingestion) _(~4 hours)_
   - Data Lake
   - Workflow orchestration
   - Setting up Airflow locally
@@ -63,7 +65,7 @@ Students are to be divided into groups of 3. These groups should try to progress
   - Ingesting data to local Postgres with Airflow
   - Moving data from AWS to GCP (Transfer service)
 
-- [Week 3: Data Warehouse](week_3_data_warehouse) _(~2.5 hours)_
+- [Week 5: Data Warehouse](week_3_data_warehouse) _(~2.5 hours)_
   - Data Warehouse
   - BigQuery
   - Partitioning and clustering
@@ -72,7 +74,7 @@ Students are to be divided into groups of 3. These groups should try to progress
   - Integrating BigQuery with Airflow
   - BigQuery Machine Learning
 
-- [Week 4: Analytics engineering](week_4_analytics_engineering/) _(~2 hours)_
+- [Week 6: Analytics engineering](week_4_analytics_engineering/) _(~2 hours)_
   - Basics of analytics engineering
   - dbt (data build tool)
   - BigQuery and dbt
@@ -82,20 +84,20 @@ Students are to be divided into groups of 3. These groups should try to progress
   - Deployment to the cloud and locally
   - Visualizing the data with Google Data Studio and Metabase
 
-- [Week 5: Batch processing](week_5_batch_processing) _(~4 hours)_
+- [Weeks 7-8: Batch processing](week_5_batch_processing) _(~4 hours)_
   - Batch processing
   - What is Spark
   - Spark Dataframes
   - Spark SQL
   - Internals: GroupBy and joins
 
-- [Week 6: Streaming](week_6_stream_processing) _(~3 hours)_
+- [Week 9: Streaming](week_6_stream_processing) _(~3 hours)_
   - Introduction to Kafka
   - Schemas (avro)
   - Kafka Streams
   - Kafka Connect and KSQL
 
-- [Week 7- 9: Project](week_7_project) _(~5 hours)_
+- [Weeks 10-12: Project](week_7_project) _(~5 hours)_
   - Week 7 and 8: working on your project
   - Week 9: reviewing your peers
 
