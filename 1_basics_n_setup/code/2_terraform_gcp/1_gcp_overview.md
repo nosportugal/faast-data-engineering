@@ -1,6 +1,6 @@
 # GCP Overview
 
-[Video](https://www.youtube.com/watch?v=18jIzE41fJ4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
+[Video](https://youtu.be/18jIzE41fJ4)
 
 ## Project infrastructure modules in GCP
 
@@ -15,10 +15,10 @@ For this course, we'll use a free version (up to EUR 300 credits).
 
 1. Create an account with your Google email ID
 2. Setup your first [project](https://console.cloud.google.com/) if you haven't already
-    * eg. "DTC DE Course", and note down the "Project ID" (we'll use this later when deploying infra with TF)
+    * e.g. "DTC DE Course", and note down the "Project ID" (we'll use this later when deploying infra with TF)
 3. Setup [service account & authentication](https://cloud.google.com/docs/authentication/getting-started) for this project
     * Grant `Viewer` role to begin with.
-    * Download service-account-keys (.json) for auth.
+    * Download service-account-keys (`.json`) for auth.
 4. Download [SDK](https://cloud.google.com/sdk/docs/quickstart) for local setup
 5. Set environment variable to point to your downloaded GCP keys:
 
@@ -48,4 +48,4 @@ For this course, we'll use a free version (up to EUR 300 credits).
 
 ## Terraform Workshop to create GCP Infra
 
-Continue [here](./terraform): `week_1_basics_n_setup/1_terraform_gcp/terraform`
+Continue [here](./2_terraform_overview.md): `1_basics_n_setup/code/1_terraform_gcp/terraform`
