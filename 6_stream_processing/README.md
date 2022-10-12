@@ -55,11 +55,6 @@ docker-compose up
 
 ## Homework
 
-The homework is mostly theoretical. In the last question you have to provide working code link, please keep in mind that this
-question is not scored.
-
-- [Homework](homework.md)
-- [Solution](https://youtu.be/3LK0elHi3fA)
 - [Office Hours](https://youtu.be/TMEtKHw60dU)
   - The purpose of the `.collect()` call.
   - Are certificates important?

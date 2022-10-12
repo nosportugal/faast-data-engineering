@@ -61,7 +61,6 @@ This week's homework will have you writing queries to answer a variety of questi
 More information [here](homework.md)
 
 - [Homework](homework.md)
-- [Solution](https://youtu.be/YtRtR2iTWR4)
 - [Office Hours](https://youtu.be/U7iBBV8Dn74)
   - How to data changes in a data warehouse?
   - AWS vs GCP

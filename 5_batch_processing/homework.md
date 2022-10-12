@@ -5,7 +5,7 @@ in practice.
 
 We'll use high volume for-hire vehicles (HVFHV) dataset for that.
 
-## Question 1. Install Spark and PySpark
+## Question 1: Install Spark and PySpark
 
 * Install Spark
 * Run PySpark
@@ -14,7 +14,7 @@ We'll use high volume for-hire vehicles (HVFHV) dataset for that.
 
 What's the output?
 
-## Question 2. HVFHW February 2021
+## Question 2: HVFHW February 2021
 
 Download the HVFHV data for February 2021:
 
@@ -60,19 +60,19 @@ schema = types.StructType([
 
 What's the size of the folder with results (in MB)?
 
-## Question 3. Count records
+## Question 3: Count records
 
 How many taxi trips were there on February 15?
 
 Consider only trips that started on February 15.
 
-## Question 4. Longest trip for each day
+## Question 4: Longest trip for each day
 
 Now calculate the duration for each trip.
 
 Trip starting on which day was the longest?
 
-## Question 5. Most frequent `dispatching_base_num`
+## Question 5: Most frequent `dispatching_base_num`
 
 Now find the most frequently occurring `dispatching_base_num`
 in this dataset.
@@ -83,7 +83,7 @@ How many stages this spark job has?
 > so there are multiple correct answers.
 > Select the one you have.
 
-## Question 6. Most common locations pair
+## Question 6: Most common locations pair
 
 Find the most common pickup/drop-off pair.
 
@@ -95,12 +95,12 @@ Enter two zone names separated by a slash
 
 If any of the zone names are unknown (missing), use "Unknown". For example, "Unknown / Clinton East".
 
-## Bonus question. Join type
-
-(not graded)
+## Question 7: Join type
 
 For finding the answer to Q6, you'll need to perform a join.
 
 What type of join is it?
 
 And how many stages your spark job has?
+
+Here is the solution to questions: [video](https://youtu.be/3LK0elHi3fA)

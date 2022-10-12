@@ -30,7 +30,9 @@ Review partitioning and clustering video. Partitioning cannot be created on all 
 **What improvements can be seen by partitioning and clustering for data size less than 1 GB**  
 Partitioning and clustering also creates extra metadata. Before query execution this metadata needs to be processed.
 
-## (Not required) Question 7
+## Question 7
 
 **In which format does BigQuery save data**  
 Review big query internals video.
+
+Here is the solution to questions: [video](https://youtu.be/YtRtR2iTWR4)

@@ -21,7 +21,7 @@ only if you want.
 Also note that for this homework we don't need the last step - creating a table in GCP.
 After putting all the files to the data lake, we'll create the tables in Week 3.
 
-## Question 1: Start date for the Yellow taxi data (1 point)
+## Question 1: Start date for the Yellow taxi data
 
 You'll need to parametrize the DAG for processing the yellow taxi data that
 we created in the videos.
@@ -33,7 +33,7 @@ What should be the start date for this DAG?
 * 2021-01-01
 * days_ago(1)
 
-## Question 2: Frequency for the Yellow taxi data (1 point)
+## Question 2: Frequency for the Yellow taxi data
 
 How often do we need to run this DAG?
 
@@ -67,7 +67,7 @@ It could be a bash operator that runs this command:
 rm name-of-csv-file.csv name-of-parquet-file.parquet
 ```
 
-## Question 3: DAG for FHV Data (2 points)
+## Question 3: DAG for FHV Data
 
 Now create another DAG - for uploading the FHV data.
 
@@ -89,7 +89,7 @@ Question: how many DAG runs are green for data in 2019 after finishing everythin
 Note: when processing the data for 2020-01 you probably will get an error. It's up
 to you to decide what to do with it - for Week 3 homework we won't need 2020 data.
 
-## Question 4: DAG for Zones (2 points)
+## Question 4: DAG for Zones
 
 Create the final DAG - for Zones:
 

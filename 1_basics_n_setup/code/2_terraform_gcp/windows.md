@@ -91,7 +91,7 @@ variable "project" {
 }
 ```
 
-* Now [follow the instructions](1_terraform_overview.md#execution-steps)
+* Now [follow the instructions](2_terraform_overview.md#execution-steps)
   * Run `terraform plan`
   * Next, run `terraform apply`
 

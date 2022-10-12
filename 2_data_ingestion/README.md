@@ -51,7 +51,7 @@ In the homework, you'll create a few DAGs for processing the NY Taxi data for 20
 More information [here](homework.md)
 
 * [Homework](homework.md)
-* [Solution](https://www.youtube.com/watch?v=HxHqH2ARfxM&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb)
+* [Solution](https://youtu.be/-0xl4GtSugQ)
 * [Office Hours](https://youtu.be/yZ-d7nItpB8)
   * Databases vs Object storage
   * What kind of workflows benefit from Airflow?

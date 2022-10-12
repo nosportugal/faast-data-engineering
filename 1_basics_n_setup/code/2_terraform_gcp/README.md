@@ -7,15 +7,15 @@
 
 ## Terraform Concepts
 
-[Terraform Overview](1_terraform_overview.md)
+[Terraform Overview](2_terraform_overview.md)
 
 ## GCP setup
 
-1. [Setup for First-time](2_gcp_overview.md#initial-setup)
+1. [Setup for First-time](1_gcp_overview.md#initial-setup)
     * [Only for Windows](windows.md) - Steps 4 & 5
-2. [IAM / Access specific to this course](2_gcp_overview.md#setup-for-access)
+2. [IAM / Access specific to this course](1_gcp_overview.md#setup-for-access)
 
- Terraform Workshop for GCP Infra
+### Terraform Workshop for GCP Infra
 
 Your setup is ready!
 Now head to the [terraform](terraform) directory, and perform the execution steps to create your infrastructure.
