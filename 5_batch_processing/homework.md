@@ -102,5 +102,3 @@ For finding the answer to Q6, you'll need to perform a join.
 What type of join is it?
 
 And how many stages your spark job has?
-
-Here is the solution to questions: [video](https://youtu.be/3LK0elHi3fA)

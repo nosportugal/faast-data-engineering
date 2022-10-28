@@ -34,5 +34,3 @@ Partitioning and clustering also creates extra metadata. Before query execution 
 
 **In which format does BigQuery save data**  
 Review big query internals video.
-
-Here is the solution to questions: [video](https://youtu.be/YtRtR2iTWR4)
