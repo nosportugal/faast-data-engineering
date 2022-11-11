@@ -14,17 +14,13 @@ In this homework, we will:
 * Create a new DAG for transferring the FHV data
 * Create another DAG for the Zones data
 
-If you don't have access to GCP, you can do that locally and ingest data to Postgres
-instead. If you have access to GCP, you don't need to do it for local Postgres -
-only if you want.
+If you don't have access to GCP, you can do that locally and ingest data to Postgres instead.
 
-Also note that for this homework we don't need the last step - creating a table in GCP.
-After putting all the files to the data lake, we'll create the tables in Week 3.
+Note that, for this homework, we don't need the last step - creating a table in GCP. After putting all the files into the data lake, we'll create the tables in Week 3.
 
 ## Question 1: Start date for the Yellow taxi data
 
-You'll need to parametrize the DAG for processing the yellow taxi data that
-we created in the videos.
+You'll need to parametrize the DAG for processing the yellow taxi data that we created in the videos.
 
 What should be the start date for this DAG?
 
@@ -52,7 +48,7 @@ To execute your DAG for past dates, try this:
 * Rename the DAG to something like `data_ingestion_gcs_DAG_v02`
 * Execute it from the Airflow GUI (the play button)
 
-Also, there's no data for the recent months, but `curl` will exit successfully.
+Also, there are no data for the recent months, but `curl` will exit successfully.
 To make it fail on 404, add the `-f` flag:
 
 ```bash
@@ -82,12 +78,11 @@ If you don't have a GCP account, for local ingestion you'll need two steps:
 * Download the data
 * Ingest to Postgres
 
-Use the same frequency and the start date as for the yellow taxi dataset
+Use the same frequency and the start date as for the yellow taxi dataset. Set the end date to 2020-01-01.
 
 Question: how many DAG runs are green for data in 2019 after finishing everything?
 
-Note: when processing the data for 2020-01 you probably will get an error. It's up
-to you to decide what to do with it - for Week 3 homework we won't need 2020 data.
+Note: when processing the data for 2020-01 you probably will get an error. It's up to you to decide what to do with it - for Week 3 homework we won't need 2020 data.
 
 ## Question 4: DAG for Zones
 
