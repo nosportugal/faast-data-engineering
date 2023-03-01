@@ -171,12 +171,20 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# Others
+# Credentials
 **google_credentials.json
+
+# Logs
 **logs/
+
+# Data
 **/ny_taxi_postgres_data/*
 serving_dir
+green/
+yellow/
 *.csv
+*.parquet
+*.csv.gz
 
 # Exceptions
 !.gitkeep
