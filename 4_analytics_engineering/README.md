@@ -16,10 +16,7 @@ By this stage of the course you should have already:
 
 > **Note**:
 >
-> A quick hack has been shared to load that data quicker, check instructions in [week3/extras](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/week_3_data_warehouse/extras)
-> If you receive an error stating "Permission denied while globbing file pattern." when attempting to run `fact_trips.sql` this video may be helpful in resolving the issue
-
-🎥 [Video](https://www.youtube.com/watch?v=kL3ZVNL9Y4A)
+> If you receive an error stating "Permission denied while globbing file pattern." when attempting to run `fact_trips.sql` this video may be helpful in resolving the issue -> 🎥 [Video](https://www.youtube.com/watch?v=kL3ZVNL9Y4A)
 
 ### Setting up dbt for using BigQuery (Alternative A - preferred)
 
@@ -136,7 +133,6 @@ This week's homework will have you writing queries using the dbt models to answe
 More information [here](homework.md)
 
 - [Homework](homework.md)
-- [Solution](https://youtu.be/I_K0lNu9WQw)
 - [Office Hours](https://youtu.be/Lh93tkpgEg0)
   - What is Data Mesh?
   - The equivalent to Stored Procedures in BigQuery.
