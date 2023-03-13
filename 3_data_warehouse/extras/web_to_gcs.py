@@ -23,6 +23,46 @@ PROJECT_ID = os.environ.get("GCP_PROJECT", "faast-data-engineering")
 BUCKET = os.environ.get("GCP_GCS_BUCKET", "gcs-faast-data-engineering")
 
 
+STANDARD_DTYPES = {
+    "Unnamed: 0": "int",
+    "VendorID": "float",
+    "store_and_fwd_flag": "object",
+    "RatecodeID": "float",
+    "PULocationID": "int",
+    "DOLocationID": "int",
+    "passenger_count": "float",
+    "trip_distance": "float",
+    "fare_amount": "float",
+    "extra": "float",
+    "mta_tax": "float",
+    "tip_amount": "float",
+    "tolls_amount": "float",
+    "ehail_fee": "float",
+    "improvement_surcharge": "float",
+    "total_amount": "float",
+    "payment_type": "float",
+    "trip_type": "float",
+    "congestion_surcharge": "float",
+}
+
+FHV_DTYPES = {
+    "dispatching_base_num": "object",
+    "pickup_datetime": "object",
+    "dropoff_datetime": "object",
+    "PUlocationID": "float64",
+    "DOlocationID": "float64",
+    "SR_Flag": "float64",
+    "Affiliated_base_number": "object",
+}
+
+
+DTYPES = {
+    "green": STANDARD_DTYPES,
+    "yellow": STANDARD_DTYPES,
+    "fhv": FHV_DTYPES,
+}
+
+
 def upload_to_gcs(bucket, object_name, local_file):
     """
     Ref: https://cloud.google.com/storage/docs/uploading-objects#storage-upload-object-python
@@ -39,31 +79,27 @@ def upload_to_gcs(bucket, object_name, local_file):
 
 
 def web_to_gcs(year, service):
-    for i in range(12):
-        # sets the month part of the file_name string
-        month = "0" + str(i + 1)
-        month = month[-2:]
-
-        # csv file_name
+    for month in range(1, 13):
+        # Get file name
         output_dir = Path(f"{service}/")
         output_dir.mkdir(parents=True, exist_ok=True)
-        file_name = output_dir / f"{service}_tripdata_{year}-{month}.csv.gz"
+        file_name = output_dir / f"{service}_tripdata_{year}-{month:0>2}.csv.gz"
 
-        # download it using requests via a pandas df
+        # Download and save
         request_url = init_url + file_name.as_posix()
         response = requests.get(request_url)
         fp = io.BytesIO(response.content)
-        df = pd.read_csv(fp, compression="gzip")
-        df.to_csv(file_name)
         print(f"Local: {file_name}")
 
-        # read it back into a parquet file
-        df = pd.read_csv(file_name)
+        # Fix column types and save into a parquet file
+        df = pd.read_csv(
+            fp, dtype=DTYPES[service], compression="gzip", encoding="latin1"
+        )
         file_name = file_name.as_posix().replace(".csv.gz", ".parquet")
         df.to_parquet(file_name, engine="pyarrow")
         print(f"Parquet: {file_name}")
 
-        # upload it to gcs
+        # Upload it to GCS
         upload_to_gcs(BUCKET, f"{service}/{file_name}", file_name)
         print(f"GCS: {service}/{file_name}")
 
@@ -73,3 +109,4 @@ if __name__ == "__main__":
     web_to_gcs("2020", "green")
     web_to_gcs("2019", "yellow")
     web_to_gcs("2020", "yellow")
+    web_to_gcs("2019", "fhv")
