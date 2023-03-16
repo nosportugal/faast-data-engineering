@@ -1,36 +1,57 @@
-# Homework
+# Week 3 Homework
 
-## Question 1
+In this homework, we will perform some queries on BigQuery as well as answer some theoretical questions.
 
-**What is count for `fhv` vehicles data for year 2019**  
-Can load the data for cloud storage and run a count(*)
+## Question 1: What is the count for `fhv` vehicles data for the year 2019?
 
-## Question 2
+* 7778101
+* 6785099
+* 42084899
+* 11876543
 
-**How many distinct dispatching_base_num we have in `fhv` for 2019**  
-Can run a distinct query on the table from question 1
+## Question 2 - How many distinct `dispatching_base_num` do we have in `fhv` for 2019?
 
-## Question 3
+* 1098
+* 792
+* 86
+* 1
 
-**Best strategy to optimize if query always filter by `dropoff_datetime` and order by `dispatching_base_num`**  
-Review partitioning and clustering video. We need to think what will be the most optimal strategy to improve query performance and reduce cost.
+## Question 3 - What is the best strategy a table whose queries will always filter by `dropoff_datetime` and order by `dispatching_base_num`?
 
-## Question 4
+* Partition by `dropoff_datetime`
+* Partition by `dispatching_base_num`
+* Partition by `dropoff_datetime` and cluster by `dispatching_base_num`
+* Partition by `dispatching_base_num` and cluster by `dropoff_datetime`
 
-**What is the count, estimated and actual data processed for query which counts trip between 2019/01/01 and 2019/03/31 for dispatching_base_num B00987, B02060, B02279**  
+## Question 4 - What is the count, estimated and actual data processed for query which counts trip between `2019-01-01` and `2019-03-31` for `dispatching_base_num` B00987, B02060, B02279?
+
 Create a table with optimized clustering and partitioning, and run a count(*). Estimated data processed can be found in top right corner and actual data processed can be found after the query is executed.
 
-## Question 5
+PS: Use best approximation for data processed values.
 
-**What will be the best partitioning or clustering strategy when filtering on dispatching_base_num and SR_Flag**  
-Review partitioning and clustering video. Partitioning cannot be created on all data types.
+* Count: 0; Estimated data processed: 0 MB; Actual data processed: 600 MB
+* Count: 26558; Estimated data processed: 400 MB; Actual data processed: 150 MB
+* Count: 26558; Estimated data processed: 155 MB; Actual data processed: 400 MB
+* Count: 26558; Estimated data processed: 600 MB; Actual data processed: 150 MB
 
-## Question 6
+## Question 5 - What would be the best partitioning or clustering strategy when filtering on `dispatching_base_num` and `SR_Flag`?
 
-**What improvements can be seen by partitioning and clustering for data size less than 1 GB**  
+* Partition by `dispatching_base_num` and cluster by `SR_Flag`
+* Partition by `SR_Flag` and cluster by `dispatching_base_num`
+* Cluster by `dispatching_base_num` and partition by `SR_Flag`
+* Partition by `dispatching_base_num` and cluster by `SR_Flag`
+
+## Question 6 - What improvements can be seen by partitioning and clustering for a small data size (i.e. less than 1 GB)?
+
 Partitioning and clustering also creates extra metadata. Before query execution this metadata needs to be processed.
 
-## Question 7
+* No improvements OR it can be worse due to the extra metadata
+* No improvements but it can never be worse
+* Huge improvement in data processed
+* Huge improvement in query performance
 
-**In which format does BigQuery save data**  
-Review big query internals video.
+## Question 7 - In which format does BigQuery save data?
+
+* Parquet
+* Columnar
+* Row

@@ -1,20 +1,17 @@
 # Week 5 Homework
 
-In this homework we'll put what we learned about Spark
-in practice.
+In this homework we'll put what we learned about Spark in practice.
 
 We'll use high volume for-hire vehicles (HVFHV) dataset for that.
 
-## Question 1: Install Spark and PySpark
+## Spark and PySpark
 
 * Install Spark
 * Run PySpark
 * Create a local spark session
 * Execute `spark.version`
 
-What's the output?
-
-## Question 2: HVFHW February 2021
+## HVFHW February 2021
 
 Download the HVFHV data for February 2021:
 
@@ -56,49 +53,58 @@ schema = types.StructType([
 ])
 ```
 
- We will use this dataset for all the remaining questions. Repartition it to 24 partitions and save it to parquet again.
+We will use this dataset for all the remaining questions. Repartition it to 24 partitions and save it to parquet again.
 
-What's the size of the folder with results (in MB)?
+## Question 1 - What is the size of the HVFHW February 2021 data?
 
-## Question 3: Count records
+What's the (approximate) size of the folder with results?
 
-How many taxi trips were there on February 15?
+* 108 MB
+* 158 MB
+* 208 MB
+* 258 MB
+
+## Question 2 - How many taxi trips were there on February 15?
 
 Consider only trips that started on February 15.
 
-## Question 4: Longest trip for each day
+* 169840
+* 264333
+* 367170
+* 462002
 
-Now calculate the duration for each trip.
+## Question 3 - Calculate the duration for each trip. When was the longest trip?
 
-Trip starting on which day was the longest?
+* 2021-02-11
+* 2021-02-12
+* 2021-02-13
+* 2021-02-14
 
-## Question 5: Most frequent `dispatching_base_num`
+## Question 4 - What is the most frequent `dispatching_base_num`?
 
-Now find the most frequently occurring `dispatching_base_num`
-in this dataset.
+* B02512
+* B0282
+* B02764
+* B02510
 
-How many stages this spark job has?
-
-> Note: the answer may depend on how you write the query,
-> so there are multiple correct answers.
-> Select the one you have.
-
-## Question 6: Most common locations pair
+## Question 5 - What was the most common location pair?
 
 Find the most common pickup/drop-off pair.
 
-For example:
+Enter two zone names separated by a slash. For example:
 
 "Jamaica Bay / Clinton East"
 
-Enter two zone names separated by a slash
-
 If any of the zone names are unknown (missing), use "Unknown". For example, "Unknown / Clinton East".
 
-## Question 7: Join type
+* Brownsville / East New York
+* East New York / East New York
+* JFK Airport / Unknown
+* Crown Heights North / Stuyvesant Heights
 
-For finding the answer to Q6, you'll need to perform a join.
+## Question 6 - To answer the previous question, you'll need to perform a join. What type of join strategy Spark will use?
 
-What type of join is it?
-
-And how many stages your spark job has?
+* Shuffle join
+* Broadcast join
+* Shuffle hash join
+* Shuffle sort merge join
