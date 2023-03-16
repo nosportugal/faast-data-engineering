@@ -182,6 +182,7 @@ cython_debug/
 serving_dir
 green/
 yellow/
+fhv/
 *.csv
 *.parquet
 *.csv.gz
