@@ -8,25 +8,26 @@ In order to connect we need the service account JSON file generated from BigQuer
 
 1. Open the [BigQuery credential wizard](https://console.cloud.google.com/apis/credentials/wizard) to create a service account in your taxi project
 
-<table><tr>
-<td> <img src="https://user-images.githubusercontent.com/4315804/152141360-4bc84b53-72f1-4e7c-b42b-7c97fe9aa6ca.png" style="width: 450px;"/> </td>
-<td> <img src="https://user-images.githubusercontent.com/4315804/152141503-1ad64131-e867-47bf-905e-ee1d7115616c.png" style="width: 450px;"/> </td>
-</tr></table>
+    <table><tr>
+    <td> <img src="https://user-images.githubusercontent.com/4315804/152141360-4bc84b53-72f1-4e7c-b42b-7c97fe9aa6ca.png" style="width: 450px;"/> </td>
+    <td> <img src="https://user-images.githubusercontent.com/4315804/152141503-1ad64131-e867-47bf-905e-ee1d7115616c.png" style="width: 450px;"/> </td>
+    </tr></table>
 
-2. You can either grant the specific roles the account will need or simply use bq admin, as you'll be the sole user of both accounts and data.
-> **Note**: if you decide to use specific roles instead of BQ Admin, some users reported that they needed to add also viewer role to avoid encountering denied access errors_
+2. You can either grant the specific roles the account will need or simply use BQ admin, as you'll be the sole user of both accounts and data.
 
-<table><tr>
-<td> <img src="https://user-images.githubusercontent.com/4315804/152141939-9ff88855-7c75-47c9-9088-2bfca0e3c0a3.png" style="width: 450px;"/> </td>
-<td> <img src="https://user-images.githubusercontent.com/4315804/152142270-5aa8aec7-5cc7-4667-9ecc-721157de83d5.png" style="width: 450px;"/> </td>
-</tr></table>
+    > **Note**: if you decide to use specific roles instead of BQ Admin, some users reported that they needed to add also viewer role to avoid encountering denied access errors_
+
+    <table><tr>
+    <td> <img src="https://user-images.githubusercontent.com/4315804/152141939-9ff88855-7c75-47c9-9088-2bfca0e3c0a3.png" style="width: 450px;"/> </td>
+    <td> <img src="https://user-images.githubusercontent.com/4315804/152142270-5aa8aec7-5cc7-4667-9ecc-721157de83d5.png" style="width: 450px;"/> </td>
+    </tr></table>
 
 3. Now that the service account has been created we need to add and download a JSON key, go to the keys section, select "create new key". Select key type JSON and once you click on create it will get immediately downloaded for you to use.
 
-<table><tr>
-<td> <img src="https://user-images.githubusercontent.com/4315804/152146423-769bdfee-3846-4296-8dee-d6843081c9b1.png" style="width: 450px;"/> </td>
-<td> <img src="https://user-images.githubusercontent.com/4315804/152146506-5b3e2e0f-3380-414d-bc20-f35ea3f47726.png" style="width: 450px;"/> </td>
-</tr></table>
+    <table><tr>
+    <td> <img src="https://user-images.githubusercontent.com/4315804/152146423-769bdfee-3846-4296-8dee-d6843081c9b1.png" style="width: 450px;"/> </td>
+    <td> <img src="https://user-images.githubusercontent.com/4315804/152146506-5b3e2e0f-3380-414d-bc20-f35ea3f47726.png" style="width: 450px;"/> </td>
+    </tr></table>
 
 ## Create a dbt cloud project
 
@@ -61,17 +62,17 @@ You are going to need:
 
 1. Select git clone and paste the SSH key from your repo.
 
- <table><tr>
-<td> <img src="https://user-images.githubusercontent.com/4315804/152147493-2037bb54-cfed-4843-bef5-5c043fd36ec3.png" style="width: 550px;"/> </td>
-<td> <img src="https://user-images.githubusercontent.com/4315804/152147547-44ab9d6d-5f3d-41a8-8f73-2d03a568e7aa.png" style="width: 550px;"/> </td>
-</tr></table>
+    <table><tr>
+    <td> <img src="https://user-images.githubusercontent.com/4315804/152147493-2037bb54-cfed-4843-bef5-5c043fd36ec3.png" style="width: 550px;"/> </td>
+    <td> <img src="https://user-images.githubusercontent.com/4315804/152147547-44ab9d6d-5f3d-41a8-8f73-2d03a568e7aa.png" style="width: 550px;"/> </td>
+    </tr></table>
 
 2. You will get a deploy key, head to your GH repo and go to the settings tab. Under security you'll find the menu _deploy keys_. Click on add key and paste the deploy key provided by dbt cloud. Make sure to tikce on "write access"
 
- <table><tr>
-<td> <img src="https://user-images.githubusercontent.com/4315804/152147783-264f9da8-ec55-4d07-a9ec-4a8591006ea8.png" style="width: 550px;"/> </td>
-<td> <img src="https://user-images.githubusercontent.com/4315804/152147942-e76ff8b5-986d-4df1-88cc-ed3e98707d62.png" style="width: 550px;"/> </td>
-</tr></table>
+    <table><tr>
+    <td> <img src="https://user-images.githubusercontent.com/4315804/152147783-264f9da8-ec55-4d07-a9ec-4a8591006ea8.png" style="width: 550px;"/> </td>
+    <td> <img src="https://user-images.githubusercontent.com/4315804/152147942-e76ff8b5-986d-4df1-88cc-ed3e98707d62.png" style="width: 550px;"/> </td>
+    </tr></table>
 
 ## Review your project settings
 
